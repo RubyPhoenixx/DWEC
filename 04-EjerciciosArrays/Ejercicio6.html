@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ejercicio 6</title>
+    </head>
+    <script>
+       function Producto_alimenticio (codigo, nombre, precio){
+           this.codigo = codigo;
+           this.nombre = nombre;
+           this.precio = precio;
+           this.imprimeDatos = function(){
+               document.write(`<p>- <b>${this.nombre}</b>: #${this.codigo} - ${this.precio}€`);
+           }
+       }
+    </script>
+    <body>
+        <header><h1>Meses del año</h1></header>
+        <script>
+            var comida1 = new Producto_alimenticio("3042", "Pizza 4 quesos", "4.80");
+            var comida2 = new Producto_alimenticio("3043", "Macarrones carbonara", "3.60");
+            var comida3 = new Producto_alimenticio("3044", "Tallarines orientales", "2.35");
+       
+            //sin terminar - AÑADIR A ARRAY
+            //sin terminar - AÑADIR A ARRAY
+            //sin terminar - AÑADIR A ARRAY
+
+            comida1.imprimeDatos();
+            comida2.imprimeDatos();
+            comida3.imprimeDatos();
+        </script>
+        
+        
+    </body>
+</html>

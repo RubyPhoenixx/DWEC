@@ -3,26 +3,18 @@
     <head>
         <title>Ejercicio 5</title>
     </head>
-    <script>
-        function sumar(n1, n2) {return n1+n2;}
-    </script>
 
     <body>
-        <header><h1>Calculadora de sumas</h1></header>
+        <header><h1>Meses del año</h1></header>
         
         <script>
-            var n1, n2;
+            var meses = new Array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
             
-            //Asegurarse que n1 es un numero
-            do{
-                n1 = prompt("Introduce un numero");
-            }while(Number.isFinite(n1));
-
-            //Asegurarse que n2 es un numero
-            do{
-                n1 = prompt("Introduce un numero");
-            }while(Number.isFinite(n2));
+            meses.forEach(function(mes){
+                document.write(mes+"<br>");
+            });
         </script>
+        
         
     </body>
 </html>

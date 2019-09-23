@@ -4,25 +4,33 @@
         <title>Ejercicio 4</title>
     </head>
     <script>
-        function check(){
-            var number = document.getElementById("number").value;
-            console.log(number);
-            var result = document.getElementById("result");
-
-            if(number%2==0){
-                result.innerHTML = "El numero " + number + " es par";
-            }else if(number%2==1){
-                result.innerHTML = "El numero " + number + " es impar";
-            }
-            
-        }
+        function sumar(n1, n2) {return n1+n2;}
     </script>
+
     <body>
-        <header><h1>Comprobador de pares/impares</h1></header>
+        <header><h1>Calculadora de sumas</h1></header>
         
-            <input id="number" type="text" name="number"/>
-            <br><button onclick="check()">Check</button>
-            <p id="result"/>
+        <script>
+            var n1, n2;
+            
+            //Asegurarse que n1 es un numero
+            do{
+                n1 = prompt("Introduce el primer numero [0 no es valido]");
+            }while(isNaN(n1) || n1==0);
+            n1=Number.parseInt(n1);
+
+            //Asegurarse que n2 es un numero
+            do{
+                n2 = prompt("Introduce el segundo numero [0 no es valido]");
+            }while(isNaN(n2) || n2==0);
+            n2=Number.parseInt(n2);
+
+            //Mostramos la suma tras llamar a la funcion
+            document.write(`${n1} + ${n2} = ${sumar(n1,n2)}`);
+
+            //
+        </script>
+        
         
     </body>
 </html>
