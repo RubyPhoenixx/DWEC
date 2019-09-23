@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ejercicio 4</title>
+    </head>
+    <script>
+        function check(){
+            var number = document.getElementById("number").value;
+            console.log(number);
+            var result = document.getElementById("result");
+
+            if(number%2==0){
+                result.innerHTML = "El numero " + number + " es par";
+            }else if(number%2==1){
+                result.innerHTML = "El numero " + number + " es impar";
+            }
+            
+        }
+    </script>
+    <body>
+        <header><h1>Comprobador de pares/impares</h1></header>
+        
+            <input id="number" type="text" name="number"/>
+            <br><button onclick="check()">Check</button>
+            <p id="result"/>
+        
+    </body>
+</html>

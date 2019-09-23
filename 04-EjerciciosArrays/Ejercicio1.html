@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ejercicio 1</title>
+    </head>
+
+    <body>
+        <h2>Array sin ordenar: </h2>
+        <script>
+            //Crear y mostrar array
+            var palabras = new Array( 'botella', 'zeta', 'androide', 'minuto')
+            palabras.forEach(palabra => {
+                document.write(`${palabra} - `);
+            });
+        </script>
+
+        <h2>Array ordenado alfabéticamente: </h2>
+        <script>
+            //Ordenar y mostrar array
+            palabras.sort();
+            palabras.forEach(palabra => {
+                document.write(`${palabra} - `);
+            });
+        </script>
+    </body>
+</html>

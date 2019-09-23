@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ejercicio 2</title>
+    </head>
+
+    <body>
+        <script>
+            //Pedir palabra (obligatorio)
+            var input;
+            do{
+                input = prompt("Introduce palabra");
+            }while(input == null || input == "" );
+
+            var arrayPalabras = [];
+            arrayPalabras.push(input);
+
+            //Preguntar si desea introducir otra palabra
+            var respuesta = confirm("¿Introducir otra palabra?");
+            while(respuesta==true){
+                //Introducir palabras al array hasta que no quiera mas
+                do{
+                    input = prompt("Introduce palabra");
+                }while(input == null || input == "" );
+
+                arrayPalabras.push(input);
+                respuesta = confirm("¿Introducir otra palabra?");
+            }
+            
+            var ventanaDatos = window.open("", "Informacion", "width=400, height=200");
+            ventanaDatos.document.write("Primera palabra: "+ arrayPalabras[0]);
+            ventanaDatos.document.write("<br>Ultima palabra: "+ arrayPalabras[arrayPalabras.length-1]);
+            ventanaDatos.document.write("<br>Palabras en el array: "+ arrayPalabras.length +"<br>");
+            arrayPalabras.sort();
+            arrayPalabras.forEach(palabra => {
+                ventanaDatos.document.write(palabra+"  ");
+            });
+        </script>
+    </body>
+</html>
