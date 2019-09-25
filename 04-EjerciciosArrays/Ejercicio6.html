@@ -14,19 +14,17 @@
        }
     </script>
     <body>
-        <header><h1>Meses del año</h1></header>
+        <h1>Menu del restaurante</h1>
         <script>
             var comida1 = new Producto_alimenticio("3042", "Pizza 4 quesos", "4.80");
             var comida2 = new Producto_alimenticio("3043", "Macarrones carbonara", "3.60");
             var comida3 = new Producto_alimenticio("3044", "Tallarines orientales", "2.35");
        
-            //sin terminar - AÑADIR A ARRAY
-            //sin terminar - AÑADIR A ARRAY
-            //sin terminar - AÑADIR A ARRAY
+            var menu = [comida1, comida2, comida3];
 
-            comida1.imprimeDatos();
-            comida2.imprimeDatos();
-            comida3.imprimeDatos();
+            menu.forEach(function(comida) {
+                comida.imprimeDatos();
+            });
         </script>
         
         
