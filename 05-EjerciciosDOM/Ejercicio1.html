@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-		<title>Ejercicio 11 - DOM básico</title>
+		<title>Ejercicio 1 - DOM básico</title>
 
 		<script type="text/javascript">
 			window.onload = function() {
@@ -15,10 +15,10 @@
 
 				// Direccion del penultimo enlace
 				var penultimoEnlace = enlaces[enlaces.length-1].getAttribute("href");
-				mensaje += '<li>Direccion del penultimo enlace: ' + '<a href='+penultimoEnlace+'>' + penultimoEnlace + '</li>';
+				mensaje += '<li>Direccion del penultimo enlace: ' + '<a href='+penultimoEnlace+'>' + penultimoEnlace + '</a></li>';
 				
 				// Numero de enlaces que apuntan a http://prueba
-				var contEnlaces;
+				var contEnlaces=0;
 
 				for(var i=0; i<enlaces.length; i++){
 					var href = enlaces[i].getAttribute("href");
