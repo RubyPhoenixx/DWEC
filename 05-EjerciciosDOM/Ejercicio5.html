@@ -4,8 +4,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ejercicio 5</title>
+    <style>
+        table{
+            padding: 10px;
+            border: 1px solid black;
+        }
+
+        button{
+           width: 30px;
+        }
+    </style>
+    <script>
+        function aniadir(num){
+            document.getElementById("texto_calculadora").value += num;
+        }
+
+        function reset(){
+            document.getElementById("texto_calculadora").value ="";
+        }
+        function calcular(){
+            var texto = document.getElementById("texto_calculadora").value;
+            if(eval(texto) == 'Infinity'){
+                alert("MATH ERROR: No se puede dividir entre cero.");
+                reset(); 
+            }else{
+                document.getElementById("texto_calculadora").value = eval(texto);
+            }
+            
+        }
+    </script>
 </head>
 <body>
-    
+    <header>
+        <h1>CALCULADORA</h1>
+    </header>
+
+        <table>
+            <th colspan="4">
+                <input type="text" disabled id="texto_calculadora">
+            </th>
+            <tr>
+                <td><button onclick="aniadir(1)">1</button></td>
+                <td><button onclick="aniadir(2)">2</button></td>
+                <td><button onclick="aniadir(3)">3</button></td>
+                <td><button onclick="reset()">C</td>
+            </tr>
+            <tr>
+                <td><button onclick="aniadir(4)">4</button></td>
+                <td><button onclick="aniadir(5)">5</button></td>
+                <td><button onclick="aniadir(6)">6</button></td>
+                <td><button onclick="aniadir('+')">+</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="aniadir(7)">7</button></td>
+                <td><button onclick="aniadir(8)">8</button></td>
+                <td><button onclick="aniadir(9)">9</button></td>
+                <td><button onclick="aniadir('-')">-</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="aniadir(0)">0</button></td>
+                <td><button onclick="aniadir('/')">/</button></td>
+                <td><button onclick="calcular()">=</button></td>
+                <td><button onclick="aniadir('*')">*</button></td>
+            </tr>
+        </table>
 </body>
 </html>
