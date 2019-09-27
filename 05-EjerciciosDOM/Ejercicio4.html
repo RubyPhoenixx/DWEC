@@ -5,8 +5,7 @@
         <title>Ejercicio 4 - DOM básico y atributos XHTML</title>
         <script>
             function copiar(){
-                var texto_derecha = document.getElementsByName('izquierda')[0].innerText();
-                document.getElementsByName('derecha')[0].innerText += texto_der;
+                document.getElementById("caja_derecha").value += document.getElementById("caja_izquierda").value;
             }
         </script>
     </head>
@@ -14,10 +13,10 @@
     <body>
         <header><h1>COPIAR TEXTO</h1></header>
         
-        <input type="text" id="caja_izq" name="izq">
-        <input type="text" id="caja_der" name="der">
+        <input type="text" id="caja_izquierda" name="izq">
+        <input type="text" id="caja_derecha" name="der">
 
-        <input type="button" value="Copiar a la caja izquierda" onclick="copiar();">
+        <input type="button" value="Copiar a la derecha" onclick="copiar()">
 
     </body>
 </html>
