@@ -1,0 +1,78 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            margin-left: calc(50% - 15%);
+        }
+    </style>
+    <!--SCRIPT PARA RELLENAR DATOS CADA SEGUNDO-->
+    <script>
+            var intervalID = window.setInterval(actualizarFecha, 1000);
+            function actualizarFecha() {
+                //MOSTRAR DIA
+                var dia = date(day);
+
+                //MOSTRAR MES
+                var mes = date(month);
+
+                //MOSTRAR AÑO
+                var anio = date(year);
+
+                //MOSTRAR HORAS
+                var hora = date(hours);
+
+                //MOSTRAR MINUTOS
+                var minuto = date(minutes);
+
+                //MOSTRAR SEGUNDOS
+                var segundo = date(seconds);
+
+                document.getElementById("fecha").innerHTML = (dia + "/" + mes + "/" + anio + "  --  " + hora + ":" + minuto + ":" + segundo);
+            }
+        </script>
+</head>
+<body>
+    <header>
+        <h1>FECHA Y HORA</h1>
+    </header>
+
+    <span id="fecha"></span>
+
+    <table>
+        <tr>
+            <!--DIA-->
+            <td id="dia1"></td>
+            <td id="dia2"></td>
+            <td><img src="Imagenes/barra.jpg"></td>
+            <!--MES-->
+            <td id="mes1"></td>
+            <td id="mes2"></td>
+            <td><img src="Imagenes/barra.jpg"></td>
+            <!--AÑO-->
+            <td id="anio1"></td>
+            <td id="anio2"></td>
+            <td id="anio3"></td>
+            <td id="anio4"></td>
+        </tr>
+        <tr>
+            <!--HORA-->
+            <td/>
+            <td id="hora1"></td>
+            <td id="hora2"></td>
+            <td><img src="Imagenes/puntos.jpg"></td>
+            <!--MINUTOS-->
+            <td id="minuto1"></td>
+            <td id="minuto2"></td>
+            <td><img src="Imagenes/puntos.jpg"></td>
+            <!--SEGUNDOS-->
+            <td id="segundo1"></td>
+            <td id="segundo2"></td>
+            <td/>
+        </tr>
+    </table>
+</body>
+</html>
