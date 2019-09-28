@@ -5,34 +5,88 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        body{
-            margin-left: calc(50% - 15%);
+        
+        table{
+            width: 60%;
+            margin-left: 20%;
         }
+
+        body{
+            text-align: center;
+        }
+
+        img{
+            width: 80%;
+            border: 1px solid black;
+            padding: 10px;
+        }
+
     </style>
     <!--SCRIPT PARA RELLENAR DATOS CADA SEGUNDO-->
     <script>
-            var intervalID = window.setInterval(actualizarFecha, 1000);
+
+            function dosDigitosStr(num){
+                if(num<10){
+                    return "0" + num;
+                }else{
+                    return "" + num;
+                }
+            }
+
+            numeros = [
+                "Imagenes/0.jpg",
+                "Imagenes/1.jpg",
+                "Imagenes/2.jpg",
+                "Imagenes/3.jpg",
+                "Imagenes/4.jpg",
+                "Imagenes/5.jpg",
+                "Imagenes/6.jpg",
+                "Imagenes/7.jpg",
+                "Imagenes/8.jpg",
+                "Imagenes/9.jpg",
+            ];
+
             function actualizarFecha() {
+
+                var fecha = new Date();
+
                 //MOSTRAR DIA
-                var dia = date(day);
+                var dia = dosDigitosStr(fecha.getDay());
+                console.log(dia[0]);
+                console.log(dia[1]);
+                document.getElementById("dia0").src = numeros[dia[0]];
+                document.getElementById("dia1").src = numeros[dia[1]];
 
                 //MOSTRAR MES
-                var mes = date(month);
+                var mes = dosDigitosStr(fecha.getMonth());
+                document.getElementById("mes0").src = numeros[mes[0]];
+                document.getElementById("mes1").src = numeros[mes[1]];
 
                 //MOSTRAR AÑO
-                var anio = date(year);
+                var anio = "" + fecha.getFullYear();
+                document.getElementById("anio0").src = numeros[anio[0]];
+                document.getElementById("anio1").src = numeros[anio[1]];
+                document.getElementById("anio2").src = numeros[anio[2]];
+                document.getElementById("anio3").src = numeros[anio[3]];
 
                 //MOSTRAR HORAS
-                var hora = date(hours);
+                var hora = dosDigitosStr(fecha.getHours());
+                document.getElementById("hora0").src = numeros[hora[0]];
+                document.getElementById("hora1").src = numeros[hora[1]];
 
                 //MOSTRAR MINUTOS
-                var minuto = date(minutes);
+                var minuto = dosDigitosStr(fecha.getMinutes());
+                document.getElementById("minuto0").src = numeros[minuto[0]];
+                document.getElementById("minuto1").src = numeros[minuto[1]];
 
                 //MOSTRAR SEGUNDOS
-                var segundo = date(seconds);
+                var segundo = dosDigitosStr(fecha.getSeconds());
+                document.getElementById("segundo0").src = numeros[segundo[0]];
+                document.getElementById("segundo1").src = numeros[segundo[1]];
 
-                document.getElementById("fecha").innerHTML = (dia + "/" + mes + "/" + anio + "  --  " + hora + ":" + minuto + ":" + segundo);
-            }
+                }
+
+            var intervalID = window.setInterval(actualizarFecha, 1000);
         </script>
 </head>
 <body>
@@ -40,37 +94,37 @@
         <h1>FECHA Y HORA</h1>
     </header>
 
-    <span id="fecha"></span>
+    <p id="fecha"></p>
 
     <table>
         <tr>
             <!--DIA-->
-            <td id="dia1"></td>
-            <td id="dia2"></td>
+            <td><img id="dia0" src="Imagenes/0.jpg"></td>
+            <td><img id="dia1" src="Imagenes/0.jpg"></td>
             <td><img src="Imagenes/barra.jpg"></td>
             <!--MES-->
-            <td id="mes1"></td>
-            <td id="mes2"></td>
+            <td><img id="mes0" src="Imagenes/0.jpg"></td>
+            <td><img id="mes1" src="Imagenes/0.jpg"></td>
             <td><img src="Imagenes/barra.jpg"></td>
             <!--AÑO-->
-            <td id="anio1"></td>
-            <td id="anio2"></td>
-            <td id="anio3"></td>
-            <td id="anio4"></td>
+            <td><img id="anio0" src="Imagenes/0.jpg"></td>
+            <td><img id="anio1" src="Imagenes/0.jpg"></td>
+            <td><img id="anio2" src="Imagenes/0.jpg"></td>
+            <td><img id="anio3" src="Imagenes/0.jpg"></td>
         </tr>
         <tr>
             <!--HORA-->
             <td/>
-            <td id="hora1"></td>
-            <td id="hora2"></td>
+            <td><img id="hora0" src="Imagenes/0.jpg"></td>
+            <td><img id="hora1" src="Imagenes/0.jpg"></td>
             <td><img src="Imagenes/puntos.jpg"></td>
             <!--MINUTOS-->
-            <td id="minuto1"></td>
-            <td id="minuto2"></td>
+            <td><img id="minuto0" src="Imagenes/0.jpg"></td>
+            <td><img id="minuto1" src="Imagenes/0.jpg"></td>
             <td><img src="Imagenes/puntos.jpg"></td>
             <!--SEGUNDOS-->
-            <td id="segundo1"></td>
-            <td id="segundo2"></td>
+            <td><img id="segundo0" src="Imagenes/0.jpg"></td>
+            <td><img id="segundo1" src="Imagenes/0.jpg"></td>
             <td/>
         </tr>
     </table>
