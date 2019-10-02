@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+
+    </style>
+    <title>Ejercicio 1 - EVENTOS</title>
+</head>
+<script>
+
+
+    window.onload = function(){
+        console.log("Dentro");
+        var boton = document.getElementById("enviar");
+        boton.addEventListener("click",mostrarOpciones);
+    }
+
+    function mostrarOpciones(){
+        var opciones = document.getElementsByClassName("opciones");
+
+        var msg = "";
+
+        for(let opcion of opciones){
+
+            if(opcion.checked){
+                msg+= "\n\''" +opcion.value;
+            }
+            
+        };
+
+        if(msg!=""){
+            alert(`Has seleccionado las opciones: ${msg}`);
+        }else{
+            alert("No has seleccionado ninguna opción.");
+        }
+
+    }    
+        
+
+</script>
+<body>
+    
+        <input type="checkbox" class="opciones" name="uno" value="uno">Opción 1
+        <br><input type="checkbox" class="opciones" name="dos" value="dos">Opción 2
+        <br><input type="checkbox" class="opciones" name="tres" value="tres">Opción 3
+        <br><input type="checkbox" class="opciones" name="cuatro" value="cuatro">Opción 4
+    
+        <button id="enviar">Enviar</button>
+    
+
+</body>
+</html>
