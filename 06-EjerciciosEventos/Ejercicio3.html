@@ -38,7 +38,22 @@
         msg+= "Ha seleccionado el procesador ";
         msg+= document.getElementById("selectProcesador").value;
         msg+= " con sistema operativo ";
-        msg+= document.getElementById("selectSistemaOperativo").value;
+        
+        var opciones = document.getElementById("selectSistemaOperativo").options;
+        var opcionesSeleccionadas = [];
+
+        for(let i=0; i<opciones.length; i++){
+            if(opciones[i].selected == true){
+                opcionesSeleccionadas.push(opciones[i]);
+            }
+        }
+
+        msg+= opcionesSeleccionadas[0].value;
+
+        for(let i=1; i<opcionesSeleccionadas.length; i++){
+            msg+= " y " + opcionesSeleccionadas[i].value;
+        }
+
 
         alert(msg);
     }
@@ -59,14 +74,14 @@
                 <select id="selectProcesador">
                     <option value="Mac Pro 2,0 Mhz">Mac Pro 2,0 Mhz</option>
                     <option value="Intel i3 1,9 Mhz">Intel i3 1,9 Mhz</option>
-                    <option value="Intel i5 2.2 Mhz" checked>Intel i5 2.2 Mhz</option>
+                    <option value="Intel i5 2.2 Mhz" selected>Intel i5 2.2 Mhz</option>
                 </select>    
             </td>
 
             <td>
                 <select multiple id="selectSistemaOperativo">
                     <option value="Windows XP">Windows XP</option>
-                    <option value="Windows 7" checked>Windows 7</option>
+                    <option value="Windows 7" selected>Windows 7</option>
                     <option value="Windows Server 2008">Windows Server 2008</option>
                 </select>   
             </td>
