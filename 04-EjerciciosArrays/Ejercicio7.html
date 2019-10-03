@@ -3,10 +3,28 @@
     <head>
         <title>Ejercicio 7</title>
     </head>
+    <style>
+        #dni{
+            display: inline;
+        }
+        button{
+            margin-top: 5px;
+        }
+    </style>
+    <script>
+        function validar(){
+            var numDNI = document.getElementById("dni_number").value;
+            var letraDNI = document.getElementById("dni_letter").value;
+
+            document.getElementById("dni").innerHTML = numDNI+letraDNI;
+        }
+    </script>
     <body>
         <form>
-            <input type="number" style="width: 100px">
-            <input type="text" style="width: 30px">
+            <input id="dni_number" type="number" style="width: 100px">
+            <input id="dni_letter" type="text" style="width: 30px">
         </form>
+        <p id="dni"></p>
+        <button onclick="validar()">VALIDAR</button>
     </body>
 </html>
