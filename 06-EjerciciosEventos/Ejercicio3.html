@@ -1,0 +1,81 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        th,td{
+            border: 1px solid black;
+            width: 300px;
+        }
+        td{
+            height: 50px;}
+        button{
+            margin: 10px;
+        }
+    </style>
+    <title>Ejercicio 3 - EVENTOS</title>
+</head>
+<script>
+
+
+    window.onload = function(){
+        var botonLimpiar = document.getElementById("botonLimpiar");
+        botonLimpiar.addEventListener("click", limpiar);
+
+        var botonEnviar = document.getElementById("botonEnviar");
+        botonEnviar.addEventListener("click", enviar);
+        }
+
+    function limpiar(){
+        alert("No hay nada que limpiar :(");
+        
+    }
+
+    function enviar(){
+        msg="";
+
+        msg+= "Ha seleccionado el procesador ";
+        msg+= document.getElementById("selectProcesador").value;
+        msg+= " con sistema operativo ";
+        msg+= document.getElementById("selectSistemaOperativo").value;
+
+        alert(msg);
+    }
+
+    
+        
+
+</script>
+<body>
+    <h1>RADIO BUTTON</h1>
+    <h4>Selecciona las opciones deseadas</h4>
+
+    <table>
+        <th>Procesador</th>
+        <th>Sistema Operativo</th>
+        <tr>
+            <td>
+                <select id="selectProcesador">
+                    <option value="Mac Pro 2,0 Mhz">Mac Pro 2,0 Mhz</option>
+                    <option value="Intel i3 1,9 Mhz">Intel i3 1,9 Mhz</option>
+                    <option value="Intel i5 2.2 Mhz" checked>Intel i5 2.2 Mhz</option>
+                </select>    
+            </td>
+
+            <td>
+                <select multiple id="selectSistemaOperativo">
+                    <option value="Windows XP">Windows XP</option>
+                    <option value="Windows 7" checked>Windows 7</option>
+                    <option value="Windows Server 2008">Windows Server 2008</option>
+                </select>   
+            </td>
+        </tr>
+    </table>
+
+    <button id="botonEnviar">Enviar</button>
+    <button id="botonLimpiar">Limpiar</button>
+    
+
+</body>
+</html>

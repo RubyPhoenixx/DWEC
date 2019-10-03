@@ -1,0 +1,94 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        th,td{
+            border: 1px solid black;
+            width: 300px;
+        }
+        button{
+            margin: 10px;
+        }
+    </style>
+    <title>Ejercicio 2 - EVENTOS</title>
+</head>
+<script>
+
+
+    window.onload = function(){
+        var botonLimpiar = document.getElementById("botonLimpiar");
+        botonLimpiar.addEventListener("click", limpiar);
+
+        var botonEnviar = document.getElementById("botonEnviar");
+        botonEnviar.addEventListener("click", enviar);
+        }
+
+    function limpiar(){
+        radios = document.getElementsByClassName("radios");
+       
+        for(let radio of radios){
+            console.log(radio.value);
+            radio.checked = false;
+        }
+    }
+
+    function enviar(){
+        msg="";
+
+        msg+= "Ha seleccionado el procesador ";
+        var radiosProcesador = document.getElementsByName("radioProcesador");
+        var radioProcesador;
+        for(let radio of radiosProcesador){
+            if(radio.checked){
+                radioProcesador = radio.value;
+            }
+        }
+        msg+= radioProcesador;
+        msg+= " con sistema operativo ";
+
+        var radiosSistemaOperativo = document.getElementsByName("radioSistemaOperativo");
+        var radioSistemaOperativo;
+        for(let radio of radiosSistemaOperativo){
+            if(radio.checked){
+                radioSistemaOperativo = radio.value;
+            }
+        }
+        msg+= radioSistemaOperativo;
+
+        alert(msg);
+    }
+
+    
+        
+
+</script>
+<body>
+    <h1>RADIO BUTTON</h1>
+    <h4>Selecciona las opciones deseadas</h4>
+
+    <table>
+        <th>Procesador</th>
+        <th>Sistema Operativo</th>
+        <tr>
+            <td>
+                    <input type="radio" checked class="radios" name="radioProcesador" value="Mac Pro 2,0 Mhz">Mac Pro 2,0 Mhz
+                    <br><input type="radio" class="radios" name="radioProcesador" value="Intel i3 1,9 Mhz">intel i3 1,9 Mhz
+                    <br><input type="radio" class="radios" name="radioProcesador" value="Intel i5 2.2 Mhz">Intel i5 2.2 Mhz
+            </td>
+
+            <td>
+                    <input type="radio" checked class="radios" name="radioSistemaOperativo" value="Windows XP">Windows XP
+                    <br><input type="radio" class="radios" name="radioSistemaOperativo" value="Windows 7">Windows 7
+                    <br><input type="radio" class="radios" name="radioSistemaOperativo" value="Windows Server 2008">Windows Server 2008
+            </td>
+        </tr>
+    </table>
+
+    <button id="botonEnviar">Enviar</button>
+    <button id="botonLimpiar">Limpiar</button>
+    
+
+</body>
+</html>

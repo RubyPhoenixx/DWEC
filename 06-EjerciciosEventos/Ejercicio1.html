@@ -4,7 +4,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <style>
-
+        button{
+            margin: 10px;
+        }
     </style>
     <title>Ejercicio 1 - EVENTOS</title>
 </head>
@@ -13,8 +15,19 @@
 
     window.onload = function(){
         console.log("Dentro");
-        var boton = document.getElementById("enviar");
-        boton.addEventListener("click",mostrarOpciones);
+        var botonEnviar = document.getElementById("enviar");
+        botonEnviar.addEventListener("click",mostrarOpciones);
+        
+        var botonReset = document.getElementById("reset");
+        botonReset.addEventListener("click", resetear);
+    }
+
+    function resetear(){
+        opciones = document.getElementsByClassName("opciones");
+
+        for(let opcion of opciones){
+            opcion.checked = false;
+        }
     }
 
     function mostrarOpciones(){
@@ -41,13 +54,15 @@
 
 </script>
 <body>
-    
-        <input type="checkbox" class="opciones" name="uno" value="uno">Opción 1
-        <br><input type="checkbox" class="opciones" name="dos" value="dos">Opción 2
-        <br><input type="checkbox" class="opciones" name="tres" value="tres">Opción 3
-        <br><input type="checkbox" class="opciones" name="cuatro" value="cuatro">Opción 4
-    
-        <button id="enviar">Enviar</button>
+    <h1>CHECKBOX</h1>
+    <h4>Selecciona las opciones deseadas</h4>
+
+    <input type="checkbox" class="opciones" name="uno" value="uno">Opción 1
+    <br><input type="checkbox" class="opciones" name="dos" value="dos">Opción 2
+    <br><input type="checkbox" class="opciones" name="tres" value="tres">Opción 3
+    <br><input type="checkbox" class="opciones" name="cuatro" value="cuatro">Opción 4
+    <br><button id="enviar">Enviar</button>
+    <button id="reset">Reset</button>
     
 
 </body>
