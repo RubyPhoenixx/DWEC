@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ejercicio 8</title>
+    </head>
+    <script>
+        function mostrarArray(miArray, nombreArray){
+
+            msg="";
+
+            msg += nombreArray + ": ";
+
+
+            miArray.forEach(element => {
+                if(typeof(element)== "string"){
+                    msg+= `"${element}", `;
+                }else{
+                    msg+= `${element}, `;
+                }
+            });
+
+            console.log(msg);
+        }
+    </script>
+    <body style="align-content: center;">
+        <h1>Abre la consola de comandos</h1>
+        <h4>Verás el contenido de los arrays</h4>
+
+        <script>
+            array1 = ["Rojo", "Verde", "Azul"];
+            array2 = [1, 2, "Cielo", "Avion"];
+            array3 = [1.4, 1.351, 203, 6];
+
+            mostrarArray(array1, "Array1");
+            mostrarArray(array2, "Array2");
+            mostrarArray(array3, "Array3");
+        </script>
+    </body>
+</html>
