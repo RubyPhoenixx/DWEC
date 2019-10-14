@@ -13,16 +13,45 @@
     </style>
     <script>
         function validar(){
-            var numDNI = document.getElementById("dni_number").value;
-            var letraDNI = document.getElementById("dni_letter").value;
+            /*--- PASO 1: Comprobar que ha introducido 8 numeros y 1 letra */
+            var dni_introducido = document.getElementById("dni_number").value;
+            
+            //Condicion de error: cantidad de caracteres mayor a 9
+            if(dni_introducido.length!=9){
+                console.log("DNI incorrecto. Debe tener 8 numeros y 1 letra");
+            }else{
+                //Condicion de error: uno de los 8 primeros caracteres no es un numero
+                if(isNaN(dni_introducido[0]) || isNaN(dni_introducido[1]) || isNaN(dni_introducido[2]) || isNaN(dni_introducido[3]) || isNaN(dni_introducido[4]) || isNaN(dni_introducido[5]) || isNaN(dni_introducido[6]) || isNaN(dni_introducido[7])){
+                    console.log("Los 8 primeros caracteres deben ser numeros");
+                }else{
+                    //Condicion de error: el noveno caracter no es una letra
+                    if((dni_introducido[8]<'a' || dni_introducido[8]>'z')&&(dni_introducido[8]<'A' || dni_introducido[8]>'Z')){
+                        console.log("El ultimo caracter debe ser una letra");
+                    }else{
+                        //PROCEDEMOS A AVERIGUAR SI LA LETRA INTRODUCIDA ES LA CORRECTA
+                        var numeroDNI = dni_introducido.substr(0,8);
+                        console.log(numeroDNI);
+                        var letraDNI = dni_introducido[8];
 
-            document.getElementById("dni").innerHTML = numDNI+letraDNI;
+                        var letras = new Array('T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'); 
+                    
+                        console.log(`Tu letra es ${letraDNI}`);
+                        console.log(`Y deberia ser ${letras[numeroDNI%23]}...`);
+
+                        if(letraDNI == letras[numeroDNI%23]){
+                            console.log("CORRECTO!");
+                        }else{
+                            console.log("FALLO!");
+                        }
+                    }
+                }
+            }
+            
         }
     </script>
     <body>
         <form>
-            <input id="dni_number" type="number" style="width: 100px">
-            <input id="dni_letter" type="text" style="width: 30px">
+            <input id="dni_number" type="text" style="width: 100px">
         </form>
         <p id="dni"></p>
         <button onclick="validar()">VALIDAR</button>
