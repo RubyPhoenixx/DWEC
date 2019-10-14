@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ejercicio 9</title>
+    </head>
+    <script>
+
+        String.prototype.fechaValida = function(){
+            var fecha_partida = this.split('/');
+            console.log(fecha_partida);
+            if(fecha_partida.length!=3){
+                console.error("FALLO: Formato incorrecto");
+                return false;
+            }else{
+                console.log("OK: Formato correcto")
+                if(isNaN(fecha_partida[0]) || isNaN(fecha_partida[1]) || isNaN(fecha_partida[2])){
+                    console.error("FALLO: Todos los valores deben ser numericos");
+                    return false;
+                }else{
+                    console.log("OK: Todos los valores son numericos");
+                    if((fecha_partida[0]<1 || fecha_partida[0]>31)||(fecha_partida[1]<1 || fecha_partida[1]>12)||(fecha_partida[2]<1970 || fecha_partida[2]>2200)){
+                        console.error("FALLO: Fecha incorrecta");
+                    }else{
+                        console.log("OK: Fecha correcta");
+                        return true;
+                    }
+                }
+            }
+        }
+    </script>
+    <body>
+        <script>
+            input = prompt("Introduce una fecha (dd/mm/aaaa)");
+
+            
+            document.write(`<h3><u>VALIDANDO FECHAS</u></h3>`);
+
+            if(input.fechaValida()){
+                console.log("La función devolvió TRUE");
+
+                fecha_partida = input.split('/');
+
+                fecha = new Date(fecha_partida[2], fecha_partida[1], fecha_partida[0]);
+                console.log(fecha);
+
+                document.write(`
+                Fecha introducida: xxxxxx
+                <br>Ese mismo dia en...
+                <table>
+                    <tr>
+                        <td>el año...</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>era un...</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+                
+                
+                
+                `);
+
+                
+            }else{
+                console.log("La función devolvió FALSE");
+            }
+
+        </script>
+        
+    </body>
+</html>
