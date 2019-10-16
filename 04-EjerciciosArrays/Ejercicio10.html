@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ejercicio 10</title>
+    </head>
+
+    <body>
+        <script>
+            msg = prompt("Introduce un mensaje");
+            document.write(`<h3>Tu mensaje es:</h3> ${msg}`);
+
+            var tieneMayus = false;
+            var tieneMinus = false;
+            for(let i=0; i<msg.length; i++){
+
+                if (msg.charAt(i)>='A' && msg.charAt(i)<='Z') {
+                    tieneMayus=true;
+                }
+                if (msg.charAt(i)>='a' && msg.charAt(i)<='z'){
+                    tieneMinus=true;
+                }
+            }
+            if(tieneMayus && tieneMinus){
+                document.write("Tu texto es una mezcla de MAYUSCULAS y minusculas");
+            }else{
+                if(tieneMayus){
+                    document.write("Tu texto está en MAYÚSCULAS");
+                }else if(tieneMinus){
+                    document.write("Tu texto está en minúsculas")
+                }else{
+                    document.write("Tu texto no tiene letras")
+                }
+                
+            }
+
+            var miVentana = window.open("", "Title", "resizable=1,width=500,height=500,scrollbars=yes");
+            miVentana.document.body.innerHTML = `
+                <h1>Soy un titulo</h1>
+                <div>Y yo soy un div</div>
+                <div>
+                    <h3>Tu mensaje es:</h3>
+                    <p>${msg}
+                </div>
+                `;
+            
+            
+
+    
+            
+        </script>
+    </body>
+</html>

@@ -3,6 +3,11 @@
     <head>
         <title>Ejercicio 9</title>
     </head>
+    <style>
+        td{
+            border: 1px solid black;
+        }
+    </style>
     <script>
 
         String.prototype.fechaValida = function(){
@@ -18,7 +23,7 @@
                     return false;
                 }else{
                     console.log("OK: Todos los valores son numericos");
-                    if((fecha_partida[0]<1 || fecha_partida[0]>31)||(fecha_partida[1]<1 || fecha_partida[1]>12)||(fecha_partida[2]<1970 || fecha_partida[2]>2200)){
+                    if((fecha_partida[0]<1 || fecha_partida[0]>31)||(fecha_partida[1]<1 || fecha_partida[1]>12)||(fecha_partida[2]<1900 || fecha_partida[2]>2200)){
                         console.error("FALLO: Fecha incorrecta");
                     }else{
                         console.log("OK: Fecha correcta");
@@ -40,28 +45,34 @@
 
                 fecha_partida = input.split('/');
 
-                fecha = new Date(fecha_partida[2], fecha_partida[1], fecha_partida[0]);
-                console.log(fecha);
+                fecha_introducida = new Date(fecha_partida[2], fecha_partida[1]-1, fecha_partida[0]);
+                fecha_menos4 = new Date(fecha_introducida - 4*(1000*3600*24*365));
+                fecha_menos3 = new Date(fecha_introducida - 3*(1000*3600*24*365));
+                fecha_menos2 = new Date(fecha_introducida - 2*(1000*3600*24*365));
+                fecha_menos1 = new Date(fecha_introducida - 1*(1000*3600*24*365));
 
+                diasSemana = ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado", ];
+                console.log(fecha_introducida);
+                console.log(fecha_introducida.getDay());
                 document.write(`
-                Fecha introducida: xxxxxx
+                Fecha introducida: ${fecha_introducida.getDate()}/${fecha_introducida.getMonth()}/${fecha_introducida.getFullYear()}
                 <br>Ese mismo dia en...
                 <table>
                     <tr>
                         <td>el año...</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>${fecha_menos4.getFullYear()}</td>
+                        <td>${fecha_menos3.getFullYear()}</td>
+                        <td>${fecha_menos2.getFullYear()}</td>
+                        <td>${fecha_menos1.getFullYear()}</td>
+                        <td>${fecha_introducida.getFullYear()}</td>
                     </tr>
                     <tr>
                         <td>era un...</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>${diasSemana[fecha_menos4.getDay()]}</td>
+                        <td>${diasSemana[fecha_menos3.getDay()]}</td>
+                        <td>${diasSemana[fecha_menos2.getDay()]}</td>
+                        <td>${diasSemana[fecha_menos1.getDay()]}</td>
+                        <td>${diasSemana[fecha_introducida.getDay()]}</td>
                     </tr>
                 </table>
                 
