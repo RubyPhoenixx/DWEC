@@ -5,6 +5,11 @@
     </head>
 
     <body>
+        <form>
+            <input type="text" id=""/>
+        </form>
+
+
         <script>
             msg = prompt("Introduce un mensaje");
             document.write(`<h3>Tu mensaje es:</h3> ${msg}`);
@@ -21,26 +26,21 @@
                 }
             }
             if(tieneMayus && tieneMinus){
-                document.write("Tu texto es una mezcla de MAYUSCULAS y minusculas");
+                msgVentana="Tu texto es una mezcla de MAYUSCULAS y minusculas";
             }else{
                 if(tieneMayus){
-                    document.write("Tu texto está en MAYÚSCULAS");
+                    msgVentana= "Tu texto está en MAYÚSCULAS";
                 }else if(tieneMinus){
-                    document.write("Tu texto está en minúsculas")
+                    msgVentana= "Tu texto está en minúsculas";
                 }else{
-                    document.write("Tu texto no tiene letras")
+                    msgVentana= "Tu texto no tiene letras";
                 }
                 
             }
 
             var miVentana = window.open("", "Title", "resizable=1,width=500,height=500,scrollbars=yes");
             miVentana.document.body.innerHTML = `
-                <h1>Soy un titulo</h1>
-                <div>Y yo soy un div</div>
-                <div>
-                    <h3>Tu mensaje es:</h3>
-                    <p>${msg}
-                </div>
+                <h3>${msgVentana}<h3>
                 `;
             
             
