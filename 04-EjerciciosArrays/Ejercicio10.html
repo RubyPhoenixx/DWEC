@@ -5,43 +5,52 @@
     </head>
 
     <body>
-        <form>
-            <input type="text" id=""/>
-        </form>
+            <input type='text' id='msg'/>
+            <button id='botonTipoLetra'>TIPO DE LETRA</button>
 
 
         <script>
-            msg = prompt("Introduce un mensaje");
-            document.write(`<h3>Tu mensaje es:</h3> ${msg}`);
 
-            var tieneMayus = false;
-            var tieneMinus = false;
-            for(let i=0; i<msg.length; i++){
+            function comprobarTexto(){
+                console.log("He sido pulsado");
+                msg = document.getElementById("msg").value;
 
-                if (msg.charAt(i)>='A' && msg.charAt(i)<='Z') {
-                    tieneMayus=true;
+                var tieneMayus = false;
+                var tieneMinus = false;
+                for(let i=0; i<msg.length; i++){
+
+                    if (msg.charAt(i)>='A' && msg.charAt(i)<='Z') {
+                        tieneMayus=true;
+                    }
+                    if (msg.charAt(i)>='a' && msg.charAt(i)<='z'){
+                        tieneMinus=true;
+                    }
                 }
-                if (msg.charAt(i)>='a' && msg.charAt(i)<='z'){
-                    tieneMinus=true;
-                }
-            }
-            if(tieneMayus && tieneMinus){
-                msgVentana="Tu texto es una mezcla de MAYUSCULAS y minusculas";
-            }else{
-                if(tieneMayus){
-                    msgVentana= "Tu texto está en MAYÚSCULAS";
-                }else if(tieneMinus){
-                    msgVentana= "Tu texto está en minúsculas";
+                if(tieneMayus && tieneMinus){
+                    msgVentana="Tu texto es una mezcla de MAYUSCULAS y minusculas";
                 }else{
-                    msgVentana= "Tu texto no tiene letras";
+                    if(tieneMayus){
+                        msgVentana= "Tu texto está en MAYÚSCULAS";
+                    }else if(tieneMinus){
+                        msgVentana= "Tu texto está en minúsculas";
+                    }else{
+                        msgVentana= "Tu texto no tiene letras";
+                    }
+                    
                 }
-                
+
+                var miVentana = window.open("", "Title", "resizable=1,width=500,height=500,scrollbars=yes");
+                miVentana.document.body.innerHTML = `
+                    <h3>${msgVentana}<h3>
+                    `;
+
             }
 
-            var miVentana = window.open("", "Title", "resizable=1,width=500,height=500,scrollbars=yes");
-            miVentana.document.body.innerHTML = `
-                <h3>${msgVentana}<h3>
-                `;
+            document.getElementById('botonTipoLetra').addEventListener("click", comprobarTexto);
+
+            
+
+            
             
             
 
